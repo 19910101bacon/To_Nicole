@@ -79,5 +79,4 @@ print('請上網輸入 : ' + a1 + a2 + str(a3) + a4 + 'VNnmcjMgT0H88Q')
 '''
 import os
 import numpy as np
-import pandas as pd
 '''
