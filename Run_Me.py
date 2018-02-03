@@ -16,9 +16,10 @@
 #(3) 第三種，我只import sum 這個函數，好處是  後面都可以值些打  sum ，但缺點是 numpy這套件內的其他函數不能使用
 #(4) 第四種，就是我可以在後面只打  sum ，不需要在前面打 numpy，而且引入了套件其他的函數
 
-# ok 那你的作業就是：這下面的指令有使用3個套件，所以你的答案會有三行，輸入正確，整個函數就可以執行摟
+# ok 那你的作業就是：這下面的指令有使用2個套件，所以你的答案會有兩行，輸入正確，整個函數就可以執行摟
 
-
+import os
+import numpy as np
 
 ##########################################################################
 ##########################################################################
@@ -45,24 +46,27 @@ a3 = np.sum([1,3,5])
 # 介紹pandas套件
 # Dataframe 由 一堆 array 構成，這點要注意
 # 我現在要來製作個 Dataframe (製作Dataframe 的方法很多，以下只是其中一個)
+try:
+    ##### 因為你可能沒有裝 pandas ，所以可能執行會有問題，所以用 try excep 除錯
+    import pandas as pd
+    # step1 先做個 dictionary
+    d = {'col1':['a', 'e', 't', 'W', 'l'], 'col2':['A','o','T','1','a']}
+    # step2 用 pandas 下面的DataFrame函數
+    df = pd.DataFrame(data=d)
+    # 你可以執行這個看看 print(df)
+    # 我要取col1出來，那就是執行這樣  df['col1']
 
-# step1 先做個 dictionary
-d = {'col1':['a', 'e', 't', 'W', 'l'], 'col2':['A','o','T','1','a']}
-# step2 用 pandas 下面的DataFrame函數
-df = pd.DataFrame(data=d)
-# 你可以執行這個看看 print(df)
-# 我要取col1出來，那就是執行這樣  df['col1']
-
-# 現在我要用 for 迴圈把所有值列出來
-# step1 我比較懶，首先我先把所有 column 都串再一起
-df_list = df['col1'].tolist() + df['col2'].tolist()  # .tolist 是把串列強至轉換成list
-a4 = ''
-for i in range(len(df_list)):    # len 是看一個list有多少個元素，像這裡 len(df_list) = 10 , 那 range(10) 就是 0 ~ 9
-    a4 +=  df_list[i]  # += 的意思就是 :   a4 = a4 + df_list[i]
-
+    # 現在我要用 for 迴圈把所有值列出來
+    # step1 我比較懶，首先我先把所有 column 都串再一起
+    df_list = df['col1'].tolist() + df['col2'].tolist()  # .tolist 是把串列強至轉換成list
+    a4 = ''
+    for i in range(len(df_list)):    # len 是看一個list有多少個元素，像這裡 len(df_list) = 10 , 那 range(10) 就是 0 ~ 9
+        a4 +=  df_list[i]  # += 的意思就是 :   a4 = a4 + df_list[i]
+except:
+    a4 = 'aetWlAoT1a'
 # 下次再教你
 # 空格 很重要
-# try except 很重要
+# 裝套件
 # quit 很重要
 
 
